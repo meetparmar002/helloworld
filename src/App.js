@@ -10,6 +10,7 @@ import FunctionClicked from './components/FunctionClicked'
 import ClassClicked from './components/ClassClicked';
 import EventBind from './components/EventBind'
 import ParentComp from './components/ParentComp';
+import UserGreeting from './components/UserGreeting'
 
 // function App() {
 //   return (
@@ -27,7 +28,8 @@ import ParentComp from './components/ParentComp';
 const App = () => {
   return (
     <div className='App'>
-      <ParentComp/>
+      <UserGreeting/>
+      {/* <ParentComp/> */}
       {/* <EventBind/> */}
       {/* <FunctionClicked />
       <ClassClicked/> */}
