@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 
-
 // const PropsExample= (props)=> {
 //   console.log(props)
 //   return (<div>

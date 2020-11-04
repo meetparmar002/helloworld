@@ -3,13 +3,13 @@ import React, { Component } from 'react'
 class EventBind extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
              msg:'Hello!'
         }
         this.clickHandler=this.clickHandler.bind(this)
     }
-    
+
     clickHandler() {
         this.setState({
             msg:'Good bye!'

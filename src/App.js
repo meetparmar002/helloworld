@@ -11,6 +11,8 @@ import ClassClicked from './components/ClassClicked';
 import EventBind from './components/EventBind'
 import ParentComp from './components/ParentComp';
 import UserGreeting from './components/UserGreeting'
+import ListRenderingExample from './components/ListRenderingExample'
+import CSSinReact from './components/CSSinReact'
 
 // function App() {
 //   return (
@@ -28,7 +30,9 @@ import UserGreeting from './components/UserGreeting'
 const App = () => {
   return (
     <div className='App'>
-      <UserGreeting/>
+      <CSSinReact/>
+      {/* <ListRenderingExample/> */}
+      {/* <UserGreeting/> */}
       {/* <ParentComp/> */}
       {/* <EventBind/> */}
       {/* <FunctionClicked />
