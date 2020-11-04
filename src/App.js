@@ -13,6 +13,8 @@ import ParentComp from './components/ParentComp';
 import UserGreeting from './components/UserGreeting'
 import ListRenderingExample from './components/ListRenderingExample'
 import CSSinReact from './components/CSSinReact'
+import './CSSModuleExample.css'
+import styles from './CSSModuleExample.module.css' 
 
 // function App() {
 //   return (
@@ -30,6 +32,8 @@ import CSSinReact from './components/CSSinReact'
 const App = () => {
   return (
     <div className='App'>
+      <h1 className='success'>Success</h1>
+      <h1 className={styles.error}>Error</h1>
       <CSSinReact/>
       {/* <ListRenderingExample/> */}
       {/* <UserGreeting/> */}

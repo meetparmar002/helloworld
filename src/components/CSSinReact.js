@@ -10,7 +10,7 @@ export default class CSSinReact extends Component {
             marginBottom: '5px'
         }
         return (
-            <div>
+            <div>   
                 <h1 style={inlineStyle} >Hello</h1>
                 <h2 className={`${className} font-size`}>From Me</h2>
             </div>
