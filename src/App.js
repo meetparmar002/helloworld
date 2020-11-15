@@ -1,67 +1,53 @@
-import React,{Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Greet from './components/Greet'
-import Welcome from './components/Welcome'
-import PropsExample from './components/propsExample'
-import StateExample from './components/StateExample'
-import Count from './components/Count'
-import FunctionClicked from './components/FunctionClicked'
-import ClassClicked from './components/ClassClicked';
-import EventBind from './components/EventBind'
-import ParentComp from './components/ParentComp';
-import UserGreeting from './components/UserGreeting'
-import ListRenderingExample from './components/ListRenderingExample'
-import CSSinReact from './components/CSSinReact'
-import './CSSModuleExample.css'
-import styles from './CSSModuleExample.module.css' 
+import React, { Component } from 'react';
+import './App.css'
+import Output from './components/Output'
+import ValidationComp from './components/ValidationComp'
+import CharComponent from './components/CharComponent'
 
-// function App() {
-//   return (
-//     // React.createElement('div',{className: 'App'},
-//     // React.createElement(Greet,null),React.createElement(Welcome,null))
-//     names=['Bruce','Clark','Diana']
-//     React.createElement('div',null,
-//     React.createElement(PropsExample,
-//       for (var i = 0; i < names.length; i++) {
-//       name:names[i]
-//     }))
-//   )
-// }
+class App extends Component {
+  state = {
+    string: 'A'
+  }
+  ipChangeHandler = (event) => {
+    this.setState({
+      string: event.target.value
+    })
+  }
+  deleteCharHandler = (index) => {
+    const text = this.state.string.split('')
+    text.splice(index, 1)
+    const updatedText = text.join('')
+    this.setState({
+      string: updatedText 
+    })
+  }
 
-const App = () => {
-  return (
-    <div className='App'>
-      <h1 className='success'>Success</h1>
-      <h1 className={styles.error}>Error</h1>
-      <CSSinReact/>
-      {/* <ListRenderingExample/> */}
-      {/* <UserGreeting/> */}
-      {/* <ParentComp/> */}
-      {/* <EventBind/> */}
-      {/* <FunctionClicked />
-      <ClassClicked/> */}
-      {/* <Count/> */}
-      {/* <PropsExample name='Bruce' heroName='Batman'>
-        <small>Batman is fictional character of DC </small>
-      </PropsExample>
-      <PropsExample name='Tony' heroName='Ironman'>
-        <small>Ironman is fictional character of Marvel </small>
-      </PropsExample> */}
-      {/* <StateExample>
-      </StateExample> */}
+  render() {
+    let listOfChars = null
+    if (this.state.string.length !== 0) {
 
-    </div>
-  )
+      listOfChars = (
+        <div>
+          {
+            this.state.string.split("").map((s, index) =>
+              <CharComponent char={s}
+                clicked={this.deleteCharHandler.bind(this, index)}
+                key={index} />)
+          }
+        </div>
+      )
+    }
+    return (
+      <div className='App'>
+        <input placeholder='Type something...' type="text"
+          value={this.state.string}
+          onChange={this.ipChangeHandler} /> <p></p>
+        <Output length={this.state.string.length}></Output>
+        <ValidationComp length={this.state.string.length} />
+        {listOfChars}
+      </div>
+    )
+  }
 }
 
-// class App extends Component{
-//   render (){
-//     return (
-//       React.createElement('div',{className: 'App'},
-//       React.createElement(Greet,null),React.createElement(Welcome,null))
-//     )
-//   }
-// }
-
-export default App;
+export default App
